@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="qqStepView">
+        <attr name="SurfaceArcColor" format="color"/>
+        <attr name="InnerArcColor" format="color"/>
+        <attr name="ArcWidth" format="dimension"/>
+        <attr name="stepTextColor" format="color"/>
+        <attr name="stepTextSize" format="dimension"/>
+    </declare-styleable>
+</resources>
