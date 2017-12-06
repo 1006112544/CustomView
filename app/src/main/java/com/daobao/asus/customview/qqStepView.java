@@ -9,7 +9,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 /**
@@ -102,14 +101,14 @@ public class qqStepView extends View{
     {
         int CurrentAngle = (int) ((CurrentStep*1.0/MaxStep)*270);//当前角度
         ArcPaint.setColor(SurfaceArcColor);
-        RectF rectF = new RectF(ArcWidth/2,ArcWidth/2,getWidth()-ArcWidth/2,getHeight());
+        RectF rectF = new RectF(ArcWidth/2,ArcWidth/2,mDiameter-ArcWidth/2,mDiameter);
         canvas.drawArc(rectF,135,CurrentAngle,false,ArcPaint);
     }
 
     private void DrawInnerArc(Canvas canvas)
     {
         ArcPaint.setColor(InnerArcColor);
-        RectF rectF = new RectF(ArcWidth/2,ArcWidth/2,getWidth()-ArcWidth/2,getHeight());
+        RectF rectF = new RectF(ArcWidth/2,ArcWidth/2,mDiameter-ArcWidth/2,mDiameter);
         canvas.drawArc(rectF,135,270,false,ArcPaint);
     }
 
@@ -117,11 +116,11 @@ public class qqStepView extends View{
     {
         Paint.FontMetricsInt fontMetrics = TextPaint.getFontMetricsInt();
         int dy = (fontMetrics.bottom - fontMetrics.top)/2 - fontMetrics.bottom;
-        int baseLine = getHeight()/2 + dy+getPaddingTop()/2-getPaddingBottom()/2;
+        int baseLine = mDiameter/2 + dy+getPaddingTop()/2-getPaddingBottom()/2;
         String mText = CurrentStep+"";
         Rect bounds = new Rect();
         TextPaint.getTextBounds(mText,0,mText.length(),bounds);
-        int x = getWidth()/2-bounds.width()/2;
+        int x = mDiameter/2-bounds.width()/2;
         canvas.drawText(mText,x,baseLine,TextPaint);
     }
 

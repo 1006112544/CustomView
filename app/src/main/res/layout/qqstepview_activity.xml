@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.daobao.asus.customview.qqStepView
         android:id="@+id/mQqStepView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         app:SurfaceArcColor="@color/colorAccent"
         app:InnerArcColor="@color/colorPrimary"
         app:stepTextColor="@color/colorAccent"
         app:stepTextSize="20sp"
         app:ArcWidth="6dp"
         />
-</LinearLayout>
+</RelativeLayout>
