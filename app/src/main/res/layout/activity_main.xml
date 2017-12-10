@@ -17,6 +17,12 @@
             android:layout_height="wrap_content"
             android:text="qqStepView"
             android:onClick="doClick"/>
+        <Button
+            android:id="@+id/bt_mLoadingView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mLoadingView"
+            android:onClick="doClick"/>
     </LinearLayout>
 
 </LinearLayout>

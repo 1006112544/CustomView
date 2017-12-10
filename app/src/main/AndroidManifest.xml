@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".qqStepActivity"/>
+        <activity android:name=".mLoadingViewActivity"/>
     </application>
 
 </manifest>

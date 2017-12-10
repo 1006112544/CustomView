@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.bt_qqStepView:
                 startActivity(new Intent(MainActivity.this,qqStepActivity.class));
                 break;
+            case R.id.bt_mLoadingView:
+                startActivity(new Intent(MainActivity.this,mLoadingViewActivity.class));
+                break;
+
         }
     }
+
 }
