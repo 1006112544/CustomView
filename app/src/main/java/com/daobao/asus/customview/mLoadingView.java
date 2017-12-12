@@ -168,5 +168,7 @@ public class mLoadingView extends View{
         if (IsStart) {
             IsStart = false;
         }
+        mShape = Shape.Rectangle;
+        invalidate();
     }
 }
