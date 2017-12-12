@@ -88,11 +88,11 @@ public class mLoadingView extends View{
         switch (mShape)
         {
             case Circular:
-                mPaint.setColor(Color.BLUE);
+                mPaint.setColor(Color.parseColor("#FF7F50"));
                 canvas.drawCircle(mDiameter/2,mDiameter/2,mDiameter/2,mPaint);
                 break;
             case Rectangle:
-                mPaint.setColor(Color.YELLOW);
+                mPaint.setColor(Color.parseColor("#8DB6CD"));
                 RectF rectF = new RectF(0,0,mDiameter,mDiameter);
                 canvas.drawRect(rectF,mPaint);
                 break;
@@ -153,6 +153,11 @@ public class mLoadingView extends View{
                             e.printStackTrace();
                         }
                     }
+                    if(!IsStart)
+                    {
+                        mShape = Shape.Circular;
+                        handler.sendEmptyMessage(1);
+                    }
                 }
             });
             mThread.start();
@@ -168,7 +173,5 @@ public class mLoadingView extends View{
         if (IsStart) {
             IsStart = false;
         }
-        mShape = Shape.Rectangle;
-        invalidate();
     }
 }
