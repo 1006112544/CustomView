@@ -99,10 +99,19 @@ public class qqStepView extends View{
 
     private void DrawSurfaceArc(Canvas canvas)
     {
-        int CurrentAngle = (int) ((CurrentStep*1.0/MaxStep)*270);//当前角度
-        ArcPaint.setColor(SurfaceArcColor);
-        RectF rectF = new RectF(ArcWidth/2,ArcWidth/2,mDiameter-ArcWidth/2,mDiameter);
-        canvas.drawArc(rectF,135,CurrentAngle,false,ArcPaint);
+        if(CurrentStep<=MaxStep)
+        {
+            int CurrentAngle = (int) ((CurrentStep*1.0/MaxStep)*270);//当前角度
+            ArcPaint.setColor(SurfaceArcColor);
+            RectF rectF = new RectF(ArcWidth/2,ArcWidth/2,mDiameter-ArcWidth/2,mDiameter);
+            canvas.drawArc(rectF,135,CurrentAngle,false,ArcPaint);
+        }
+        else
+        {
+            ArcPaint.setColor(SurfaceArcColor);
+            RectF rectF = new RectF(ArcWidth/2,ArcWidth/2,mDiameter-ArcWidth/2,mDiameter);
+            canvas.drawArc(rectF,135,270,false,ArcPaint);
+        }
     }
 
     private void DrawInnerArc(Canvas canvas)
