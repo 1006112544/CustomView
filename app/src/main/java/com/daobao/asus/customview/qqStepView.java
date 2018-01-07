@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 
 /**
@@ -45,7 +46,7 @@ public class qqStepView extends View{
         InnerArcColor = array.getColor(R.styleable.qqStepView_InnerArcColor,InnerArcColor);
         ArcWidth = (int) array.getDimension(R.styleable.qqStepView_ArcWidth,ArcWidth);
         stepTextColor = array.getColor(R.styleable.qqStepView_stepTextColor,stepTextColor);
-        stepTextSize = array.getDimensionPixelSize(R.styleable.qqStepView_stepTextSize,stepTextSize);
+        stepTextSize = array.getDimensionPixelSize(R.styleable.qqStepView_stepTextSize,SptoPx(stepTextSize));
 
         ArcPaint = new Paint();
         ArcPaint.setAntiAlias(true);
@@ -142,6 +143,10 @@ public class qqStepView extends View{
     public void setMaxStep(int MaxStep)
     {
         this.MaxStep = MaxStep;
+    }
+
+    private int SptoPx(int sp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,sp,getResources().getDisplayMetrics());
     }
 
 }
