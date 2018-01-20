@@ -49,7 +49,6 @@ public class mLoadingView extends View{
     public mLoadingView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mShape = Shape.Circular;
-
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
     }

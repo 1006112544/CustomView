@@ -4,13 +4,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
-
+    private LinearLayout mLinerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mLinerLayout = findViewById(R.id.mLinerLayout);
     }
 
     public void doClick(View view) {
@@ -21,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.bt_mLoadingView:
                 startActivity(new Intent(MainActivity.this,mLoadingViewActivity.class));
+                break;
+            case R.id.startAnim:
+                Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.myanim);
+                mLinerLayout.startAnimation(anim);
                 break;
 
         }
