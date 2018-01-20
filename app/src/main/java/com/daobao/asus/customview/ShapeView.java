@@ -11,14 +11,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 /**
  * Created by db on 2017/12/10.
  */
 
-public class mLoadingView extends View{
+public class ShapeView extends View{
     private Paint mPaint;
     private Path mPath;
     int mWidth;//组件宽
@@ -38,15 +37,15 @@ public class mLoadingView extends View{
         }
     };
 
-    public mLoadingView(Context context) {
+    public ShapeView(Context context) {
         this(context,null);
     }
 
-    public mLoadingView(Context context, @Nullable AttributeSet attrs) {
+    public ShapeView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public mLoadingView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ShapeView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mShape = Shape.Circular;
         mPaint = new Paint();
@@ -111,14 +110,14 @@ public class mLoadingView extends View{
 
     }
 
-    private enum Shape
+    public enum Shape
     {
         Circular,
         Rectangle,//矩形
         Triangle //三角形
     }
 
-    private void changeShape()
+    public void changeShape()
     {
         if(mShape.equals(Shape.Circular))
         {
@@ -132,6 +131,7 @@ public class mLoadingView extends View{
         {
             mShape = Shape.Circular;
         }
+        invalidate();
     }
 
     public void start()
@@ -172,5 +172,10 @@ public class mLoadingView extends View{
         if (IsStart) {
             IsStart = false;
         }
+    }
+
+    public Shape getShape()
+    {
+        return mShape;
     }
 }
