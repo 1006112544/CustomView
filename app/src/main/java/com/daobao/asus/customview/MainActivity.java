@@ -33,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.qqMsgDrafitingViewBt:
                 startActivity(new Intent(MainActivity.this,qqMsgDrafitingViewActivity.class));
+                break;
             case R.id.GaussianBlur:
                 startActivity(new Intent(MainActivity.this,GaussianBlurActivity.class));
+                break;
         }
     }
 
