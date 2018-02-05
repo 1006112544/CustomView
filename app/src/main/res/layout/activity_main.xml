@@ -41,6 +41,12 @@
             android:layout_height="wrap_content"
             android:onClick="doClick"
             android:text="消息拖拽消失"/>
+        <Button
+            android:id="@+id/GaussianBlur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="doClick"
+            android:text="高斯模糊"/>
     </LinearLayout>
 
 </LinearLayout>
