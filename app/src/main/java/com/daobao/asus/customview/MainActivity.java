@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
                 Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.myanim);
                 mLinerLayout.startAnimation(anim);
                 break;
-
+            case R.id.qqMsgDrafitingViewBt:
+                startActivity(new Intent(MainActivity.this,qqMsgDrafitingViewActivity.class));
         }
     }
 

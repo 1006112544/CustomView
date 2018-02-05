@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".qqStepActivity"/>
         <activity android:name=".mLoadingViewActivity"/>
+        <activity android:name=".qqMsgDrafitingViewActivity"/>
     </application>
 
 </manifest>
