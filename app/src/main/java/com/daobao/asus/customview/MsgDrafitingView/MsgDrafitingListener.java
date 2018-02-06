@@ -78,7 +78,7 @@ public class MsgDrafitingListener implements View.OnTouchListener {
                     public void dismiss(PointF pointF) {
                         //爆炸效果
                         // 要去执行爆炸动画 （帧动画）
-                        // 原来的View的View肯定要移除
+                        //移除拖拽的view
                         mWindowManager.removeView(mMsgDrafitingView);
                         // 要在 mWindowManager 添加一个爆炸动画
                         mWindowManager.addView(mBombFrame,params);
@@ -125,6 +125,11 @@ public class MsgDrafitingListener implements View.OnTouchListener {
         void dismiss(View view);
     }
 
+    /**
+     * 获取爆炸动画画的时间
+     * @param drawable
+     * @return
+     */
     private long getAnimationDrawableTime(AnimationDrawable drawable) {
         int numberOfFrames = drawable.getNumberOfFrames();
         long time = 0;
