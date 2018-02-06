@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.LinearLayout;
+
+import com.daobao.asus.customview.GuassianBlur.GaussianBlurActivity;
+import com.daobao.asus.customview.LoadingView.mLoadingViewActivity;
+import com.daobao.asus.customview.MsgDrafitingView.MsgDrafitingViewActivity;
+import com.daobao.asus.customview.StepView.qqStepActivity;
 
 public class MainActivity extends AppCompatActivity {
     private LinearLayout mLinerLayout;
@@ -32,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 mLinerLayout.startAnimation(anim);
                 break;
             case R.id.qqMsgDrafitingViewBt:
-                startActivity(new Intent(MainActivity.this,qqMsgDrafitingViewActivity.class));
+                startActivity(new Intent(MainActivity.this,MsgDrafitingViewActivity.class));
                 break;
             case R.id.GaussianBlur:
                 startActivity(new Intent(MainActivity.this,GaussianBlurActivity.class));

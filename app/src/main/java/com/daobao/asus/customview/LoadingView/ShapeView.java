@@ -1,4 +1,4 @@
-package com.daobao.asus.customview;
+package com.daobao.asus.customview.LoadingView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

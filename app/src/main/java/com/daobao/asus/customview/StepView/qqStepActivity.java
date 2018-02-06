@@ -1,9 +1,11 @@
-package com.daobao.asus.customview;
+package com.daobao.asus.customview.StepView;
 
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
+import com.daobao.asus.customview.R;
 
 /**
  * Created by db on 2017/12/5.

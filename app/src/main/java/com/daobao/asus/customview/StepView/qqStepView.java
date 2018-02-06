@@ -1,4 +1,4 @@
-package com.daobao.asus.customview;
+package com.daobao.asus.customview.StepView;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,6 +11,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+
+import com.daobao.asus.customview.R;
 
 /**
  * Created by db on 2017/12/5.
@@ -41,7 +43,7 @@ public class qqStepView extends View{
 
     public qqStepView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray array = context.obtainStyledAttributes(attrs,R.styleable.qqStepView);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.qqStepView);
         SurfaceArcColor = array.getColor(R.styleable.qqStepView_SurfaceArcColor,SurfaceArcColor);
         InnerArcColor = array.getColor(R.styleable.qqStepView_InnerArcColor,InnerArcColor);
         ArcWidth = (int) array.getDimension(R.styleable.qqStepView_ArcWidth,ArcWidth);

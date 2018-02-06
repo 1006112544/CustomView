@@ -1,4 +1,4 @@
-package com.daobao.asus.customview;
+package com.daobao.asus.customview.GuassianBlur;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,6 +15,8 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+
+import com.daobao.asus.customview.R;
 
 /**
  * Created by db on 2018/2/5.

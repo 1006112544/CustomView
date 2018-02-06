@@ -16,10 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".qqStepActivity"/>
-        <activity android:name=".mLoadingViewActivity"/>
-        <activity android:name=".qqMsgDrafitingViewActivity"/>
-        <activity android:name=".GaussianBlurActivity"/>
+        <activity android:name=".StepView.qqStepActivity"/>
+        <activity android:name=".LoadingView.mLoadingViewActivity"/>
+        <activity android:name=".MsgDrafitingView.MsgDrafitingViewActivity"/>
+        <activity android:name=".GuassianBlur.GaussianBlurActivity"/>
     </application>
 
 </manifest>

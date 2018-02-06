@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
-    <com.daobao.asus.customview.ShapeView
+    <com.daobao.asus.customview.LoadingView.ShapeView
         android:id="@+id/mLoadingView"
         android:layout_gravity="center_horizontal"
         android:layout_width="40dp"

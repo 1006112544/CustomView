@@ -1,4 +1,4 @@
-package com.daobao.asus.customview;
+package com.daobao.asus.customview.LoadingView;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
+
+import com.daobao.asus.customview.R;
 
 /**
  * Created by db on 2018/1/20.
@@ -42,7 +44,7 @@ public class LoadingView extends LinearLayout {
      * 初始化布局
      */
     private void initLayout() {
-        inflate(getContext(),R.layout.loadview_ui,this);
+        inflate(getContext(), R.layout.loadview_ui,this);
         mShapeView = findViewById(R.id.mLoadingView);
         mShadowView = findViewById(R.id.load_shadow);
         startFallAnimation();

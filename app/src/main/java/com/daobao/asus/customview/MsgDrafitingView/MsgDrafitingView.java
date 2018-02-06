@@ -1,6 +1,11 @@
-package com.daobao.asus.customview;
+package com.daobao.asus.customview.MsgDrafitingView;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -8,15 +13,18 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.OvershootInterpolator;
+import android.widget.Button;
 
 /**
  * Created by db on 2018/2/5.
  */
 
-public class qqMsgDraftingView extends View{
+public class MsgDrafitingView extends View{
 
     private PointF mLittleCirclePoint;
     private PointF mBigCirclePoint;
@@ -25,19 +33,21 @@ public class qqMsgDraftingView extends View{
     private int mBigCircleRadius = 10;
     //小圆半径
     private int mLittleCircleRadiusMax = 10;
-    private int mLittleCircleRadiusMin = 3;
+    private int mLittleCircleRadiusMin = 2;
     private int mLittleCircleRadius;
+    private Bitmap dragBitmap;
+    private OnToucnUpListener mOnToucnUpListener;
 
 
-    public qqMsgDraftingView(Context context) {
+    public MsgDrafitingView(Context context) {
         this(context,null);
     }
 
-    public qqMsgDraftingView(Context context, @Nullable AttributeSet attrs) {
+    public MsgDrafitingView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public qqMsgDraftingView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public MsgDrafitingView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mBigCircleRadius = dip2px(mBigCircleRadius);
         mLittleCircleRadiusMax = dip2px(mLittleCircleRadiusMax);
@@ -50,31 +60,6 @@ public class qqMsgDraftingView extends View{
 
     private int dip2px(int dip) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,dip,getResources().getDisplayMetrics());
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if(mLittleCirclePoint==null||mBigCirclePoint==null)
-        {
-            mLittleCirclePoint = new PointF();
-            mBigCirclePoint = new PointF();
-        }
-        switch (event.getAction())
-        {
-            case MotionEvent.ACTION_DOWN:
-                mLittleCirclePoint.x = event.getX();
-                mLittleCirclePoint.y = event.getY();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                mBigCirclePoint.x = event.getX();
-                mBigCirclePoint.y = event.getY();
-                break;
-            case MotionEvent.ACTION_UP:
-                break;
-        }
-        //更新画面
-        invalidate();
-        return true;
     }
 
     @Override
@@ -92,12 +77,17 @@ public class qqMsgDraftingView extends View{
             // 画贝塞尔曲线
             canvas.drawPath(bezeierPath, mPaint);
         }
+        // 画图片
+        if (dragBitmap != null) {
+            canvas.drawBitmap(dragBitmap, mBigCirclePoint.x - dragBitmap.getWidth() / 2,
+                    mBigCirclePoint.y - dragBitmap.getHeight() / 2, null);
+        }
     }
 
     private Path getBezeierPath() {
         double distance = getDistance(mBigCirclePoint,mLittleCirclePoint);
 
-        mLittleCircleRadius = (int) (mLittleCircleRadiusMax - distance / 14);
+        mLittleCircleRadius = (int) (mLittleCircleRadiusMax - distance / 10);
         if (mLittleCircleRadius < mLittleCircleRadiusMin) {
             // 超过一定距离 贝塞尔和固定圆都不要画了
             return null;
@@ -157,5 +147,80 @@ public class qqMsgDraftingView extends View{
      */
     private double getDistance(PointF point1, PointF point2) {
         return Math.sqrt((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y));
+    }
+
+    /**
+     * 绑定View
+     */
+    public static void attach(View view, MsgDrafitingListener.BubbleDisappearListener disappearListener) {
+        view.setOnTouchListener(new MsgDrafitingListener(view.getContext(),disappearListener));
+    }
+
+    public void initPoint(float x, float y) {
+        mBigCirclePoint = new PointF(x,y);
+        mLittleCirclePoint = new PointF(x,y);
+    }
+
+    public void updatePoint(float x,float y)
+    {
+        mBigCirclePoint.x = x;
+        mBigCirclePoint.y = y;
+        invalidate();
+    }
+
+    public void setDragBitmap(Bitmap dragBitmap) {
+        this.dragBitmap = dragBitmap;
+    }
+
+    public void setOnToucnUpListener(OnToucnUpListener listener)
+    {
+        mOnToucnUpListener = listener;
+    }
+
+    public interface OnToucnUpListener {
+        // 还原
+        void restore();
+        // 消失爆炸
+        void dismiss(PointF pointF);
+    }
+
+    /**
+     * 处理手指抬起后的操作
+     */
+    public void OnTouchUp()
+    {
+        if (mLittleCircleRadius > mLittleCircleRadiusMin) {
+            // 回弹  ValueAnimator 值变化的动画  0 变化到 1
+            ValueAnimator animator = ObjectAnimator.ofFloat(1);
+            animator.setDuration(250);
+            final PointF start = new PointF(mBigCirclePoint.x, mBigCirclePoint.y);
+            final PointF end = new PointF(mLittleCirclePoint.x, mLittleCirclePoint.y);
+            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float percent = (float) animation.getAnimatedValue();// 0 - 1
+                    PointF pointF = Utils.getPointByPercent(start, end, percent);
+                    //更新位子
+                    updatePoint(pointF.x, pointF.y);
+                }
+            });
+            // 设置一个差值器 在结束的时候回弹
+            animator.setInterpolator(new OvershootInterpolator(3f));
+            animator.start();
+            // 还要通知 TouchListener
+            animator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    if(mOnToucnUpListener != null){
+                        mOnToucnUpListener.restore();
+                    }
+                }
+            });
+        } else {
+            // 爆炸
+            if(mOnToucnUpListener != null){
+                mOnToucnUpListener.dismiss(mBigCirclePoint);
+            }
+        }
     }
 }
