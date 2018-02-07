@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
 import android.graphics.PointF;
 import android.graphics.drawable.AnimationDrawable;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +58,7 @@ public class MsgDrafitingListener implements View.OnTouchListener {
                 int[] location = new int[2];
                 view.getLocationOnScreen(location);
                 Bitmap bitmap = getBitmapByView(view);
+                //y轴需要减去状态栏的高度
                 mMsgDrafitingView.initPoint(location[0] + view.getWidth() / 2,
                         location[1]+view.getHeight()/2 -Utils.getStatusBarHeight(context));
                 // 给消息拖拽设置一个Bitmap
@@ -87,7 +87,6 @@ public class MsgDrafitingListener implements View.OnTouchListener {
                         AnimationDrawable drawable = (AnimationDrawable) mBombImage.getBackground();
                         mBombImage.setX(pointF.x-drawable.getIntrinsicWidth()/2);
                         mBombImage.setY(pointF.y-drawable.getIntrinsicHeight()/2);
-
                         drawable.start();
                         // 等它执行完之后我要移除掉这个 爆炸动画也就是 mBombFrame
                         mBombImage.postDelayed(new Runnable() {
