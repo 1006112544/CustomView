@@ -40,7 +40,8 @@ public class MsgDrafitingListener implements View.OnTouchListener {
 
         mBombFrame = new FrameLayout(context);
         mBombImage = new ImageView(context);
-        mBombImage.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        mBombImage.setLayoutParams(new FrameLayout.LayoutParams(Utils.dip2px(30,context),
+                Utils.dip2px(30,context)));
         mBombFrame.addView(mBombImage);
         this.mDisappearListener = disappearListener;
     }
