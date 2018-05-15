@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import com.daobao.asus.customview.GuassianBlur.GaussianBlurActivity;
 import com.daobao.asus.customview.LoadingView.mLoadingViewActivity;
 import com.daobao.asus.customview.MsgDrafitingView.MsgDrafitingViewActivity;
+import com.daobao.asus.customview.RoundImageView.RoundAngleImageActivity;
 import com.daobao.asus.customview.StepView.qqStepActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.GaussianBlur:
                 startActivity(new Intent(MainActivity.this,GaussianBlurActivity.class));
+                break;
+            case R.id.RoundAngleImageBt:
+                startActivity(new Intent(MainActivity.this,RoundAngleImageActivity.class));
                 break;
         }
     }

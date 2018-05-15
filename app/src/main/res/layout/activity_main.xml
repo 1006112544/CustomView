@@ -47,6 +47,11 @@
             android:layout_height="wrap_content"
             android:onClick="doClick"
             android:text="高斯模糊"/>
+        <Button
+            android:id="@+id/RoundAngleImageBt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="doClick"
+            android:text="圆角View"/>
     </LinearLayout>
-
 </LinearLayout>

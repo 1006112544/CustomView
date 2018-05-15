@@ -7,4 +7,9 @@
         <attr name="stepTextColor" format="color"/>
         <attr name="stepTextSize" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="RoundAngleImageView">
+        <attr name="roundWidth" format="dimension" />
+        <attr name="roundHeight" format="dimension" />
+    </declare-styleable>
 </resources>
