@@ -22,6 +22,7 @@
         <activity android:name=".GuassianBlur.GaussianBlurActivity"/>
         <activity android:name=".RoundImageView.RoundAngleImageActivity"/>
         <activity android:name=".CircleImgView.CircleImgActivity"/>
+        <activity android:name=".GalleryView.GalleryActivity"/>
     </application>
 
 </manifest>

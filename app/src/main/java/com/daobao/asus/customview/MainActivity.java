@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
+import com.daobao.asus.customview.GalleryView.GalleryActivity;
 import com.daobao.asus.customview.GuassianBlur.GaussianBlurActivity;
 import com.daobao.asus.customview.LoadingView.mLoadingViewActivity;
 import com.daobao.asus.customview.MsgDrafitingView.MsgDrafitingViewActivity;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.RoundAngleImageBt:
                 startActivity(new Intent(MainActivity.this,RoundAngleImageActivity.class));
+                break;
+            case R.id.GalleryBtn:
+                startActivity(new Intent(MainActivity.this,GalleryActivity.class));
                 break;
         }
     }

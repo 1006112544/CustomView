@@ -54,4 +54,15 @@
             android:onClick="doClick"
             android:text="圆角View"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/GalleryBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="doClick"
+            android:text="垂直画廊效果"/>
+    </LinearLayout>
 </LinearLayout>
