@@ -64,5 +64,11 @@
             android:layout_height="wrap_content"
             android:onClick="doClick"
             android:text="垂直画廊效果"/>
+        <Button
+            android:id="@+id/MRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="doClick"
+            android:text="侧滑删除RecyclerView"/>
     </LinearLayout>
 </LinearLayout>

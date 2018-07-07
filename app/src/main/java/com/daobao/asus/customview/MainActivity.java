@@ -3,6 +3,7 @@ package com.daobao.asus.customview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,6 +13,7 @@ import com.daobao.asus.customview.GalleryView.GalleryActivity;
 import com.daobao.asus.customview.GuassianBlur.GaussianBlurActivity;
 import com.daobao.asus.customview.LoadingView.mLoadingViewActivity;
 import com.daobao.asus.customview.MsgDrafitingView.MsgDrafitingViewActivity;
+import com.daobao.asus.customview.RecyclerView.RecyclerViewActivity;
 import com.daobao.asus.customview.RoundImageView.RoundAngleImageActivity;
 import com.daobao.asus.customview.StepView.qqStepActivity;
 
@@ -48,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.GalleryBtn:
                 startActivity(new Intent(MainActivity.this,GalleryActivity.class));
+                break;
+            case R.id.MRecyclerView:
+                startActivity(new Intent(MainActivity.this,RecyclerViewActivity.class));
                 break;
         }
     }
