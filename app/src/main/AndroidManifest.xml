@@ -24,6 +24,7 @@
         <activity android:name=".CircleImgView.CircleImgActivity"/>
         <activity android:name=".GalleryView.GalleryActivity"/>
         <activity android:name=".RecyclerView.RecyclerViewActivity"/>
+        <activity android:name=".FlowLayout.FlowActivity"/>
     </application>
 
 </manifest>

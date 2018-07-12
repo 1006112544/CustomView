@@ -40,7 +40,7 @@ public class ItemRemoveRecyclerView extends RecyclerView {
     private int mDeleteBtnState;
 
     //检测手指在滑动过程中的速度
-    private VelocityTracker mVelocityTracker;
+    private VelocityTracker mVelocityTracker;//用于追踪手指速率
     private Scroller mScroller;
     private OnItemClickListener mListener;
 
@@ -69,12 +69,12 @@ public class ItemRemoveRecyclerView extends RecyclerView {
         switch (e.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if (mDeleteBtnState == 0) {
-                    View view = findChildViewUnder(x, y);
+                    View view = findChildViewUnder(x, y);//返回指定位置的childview
                     if (view == null) {
                         return false;
                     }
 
-                    MyViewHolder viewHolder = (MyViewHolder) getChildViewHolder(view);
+                    MyViewHolder viewHolder = (MyViewHolder) getChildViewHolder(view);//根据childview获取viewholder
 
                     mItemLayout = viewHolder.layout;
                     mPosition = viewHolder.getAdapterPosition();

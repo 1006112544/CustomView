@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
+import com.daobao.asus.customview.FlowLayout.FlowActivity;
 import com.daobao.asus.customview.GalleryView.GalleryActivity;
 import com.daobao.asus.customview.GuassianBlur.GaussianBlurActivity;
 import com.daobao.asus.customview.LoadingView.mLoadingViewActivity;
@@ -53,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.MRecyclerView:
                 startActivity(new Intent(MainActivity.this,RecyclerViewActivity.class));
+                break;
+            case R.id.FlowLayout:
+                startActivity(new Intent(MainActivity.this,FlowActivity.class));
                 break;
         }
     }
