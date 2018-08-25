@@ -14,6 +14,7 @@ import com.daobao.asus.customview.GalleryView.GalleryActivity;
 import com.daobao.asus.customview.GuassianBlur.GaussianBlurActivity;
 import com.daobao.asus.customview.LoadingView.mLoadingViewActivity;
 import com.daobao.asus.customview.MsgDrafitingView.MsgDrafitingViewActivity;
+import com.daobao.asus.customview.PassWordEditText.PassWordEditTextActivity;
 import com.daobao.asus.customview.RecyclerView.RecyclerViewActivity;
 import com.daobao.asus.customview.RoundImageView.RoundAngleImageActivity;
 import com.daobao.asus.customview.StepView.qqStepActivity;
@@ -58,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.FlowLayout:
                 startActivity(new Intent(MainActivity.this,FlowActivity.class));
                 break;
+            case R.id.PassWordEditText:
+                startActivity(new Intent(MainActivity.this, PassWordEditTextActivity.class));
         }
     }
 
