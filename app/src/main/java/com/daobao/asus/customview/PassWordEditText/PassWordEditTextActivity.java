@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.daobao.asus.customview.R;
 
@@ -34,36 +35,38 @@ public class PassWordEditTextActivity extends AppCompatActivity{
             public void onButtonClick(PassWordEditRvAdapter.ButtonType type) {
                 switch (type){
                     case ONE:
-                        mPassWordEditText.addPassWord();
+                        mPassWordEditText.addPassWord(1);
                         break;
                     case TWO:
-                        mPassWordEditText.addPassWord();
+                        mPassWordEditText.addPassWord(2);
                         break;
                     case THREE:
-                        mPassWordEditText.addPassWord();
+                        mPassWordEditText.addPassWord(3);
                         break;
                     case FOUR:
-                        mPassWordEditText.addPassWord();
+                        mPassWordEditText.addPassWord(4);
                         break;
                     case FIVE:
-                        mPassWordEditText.addPassWord();
+                        mPassWordEditText.addPassWord(5);
                         break;
                     case SIX:
-                        mPassWordEditText.addPassWord();
+                        mPassWordEditText.addPassWord(6);
                         break;
                     case SEVEN:
-                        mPassWordEditText.addPassWord();
+                        mPassWordEditText.addPassWord(7);
                         break;
                     case EIGHT:
-                        mPassWordEditText.addPassWord();
+                        mPassWordEditText.addPassWord(8);
                         break;
                     case NIGHT:
-                        mPassWordEditText.addPassWord();
+                        mPassWordEditText.addPassWord(9);
                         break;
                     case FINISH:
+                        Toast.makeText(PassWordEditTextActivity.this
+                                ,mPassWordEditText.getPassWord(),Toast.LENGTH_LONG).show();
                         break;
                     case ZERO:
-                        mPassWordEditText.addPassWord();
+                        mPassWordEditText.addPassWord(0);
                         break;
                     case DELETE:
                         mPassWordEditText.deletePassWord();

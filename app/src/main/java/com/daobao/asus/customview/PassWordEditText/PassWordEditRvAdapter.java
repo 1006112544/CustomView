@@ -101,7 +101,7 @@ public class PassWordEditRvAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                 type = ButtonType.NIGHT;
                                 break;
                             case 9:
-                                type = ButtonType.FIVE;
+                                type = ButtonType.FINISH;
                                 break;
                             case 10:
                                 type = ButtonType.ZERO;

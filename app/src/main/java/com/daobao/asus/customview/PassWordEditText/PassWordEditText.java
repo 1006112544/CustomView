@@ -23,6 +23,7 @@ public class PassWordEditText extends LinearLayout{
     private List<ImageView> PassWordIvList;
     private Integer currentIndex = 0;
     private int padding=10;
+    private StringBuilder mPasswordBuilder;
 
     public PassWordEditText(Context context) {
         this(context,null);
@@ -34,6 +35,7 @@ public class PassWordEditText extends LinearLayout{
 
     public PassWordEditText(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mPasswordBuilder = new StringBuilder();
         setDividerDrawable(getResources().getDrawable(R.drawable.divider_password_edittext));
         setShowDividers(SHOW_DIVIDER_MIDDLE);
         setBackgroundResource(R.drawable.bg_password_edittext);
@@ -82,8 +84,9 @@ public class PassWordEditText extends LinearLayout{
     /**
      * 輸入一位密碼后顯示
      */
-    public void addPassWord(){
+    public void addPassWord(int input){
         if(currentIndex<6){
+            mPasswordBuilder.append(input);
             PassWordIvList.get(currentIndex++).setImageResource(R.mipmap.ic_dot);
         }
     }
@@ -93,7 +96,9 @@ public class PassWordEditText extends LinearLayout{
      */
     public void deletePassWord(){
         if(currentIndex>0){
-            PassWordIvList.get(--currentIndex).setImageDrawable(null);
+            --currentIndex;
+            mPasswordBuilder.deleteCharAt(currentIndex);
+            PassWordIvList.get(currentIndex).setImageDrawable(null);
         }
     }
 
@@ -105,6 +110,7 @@ public class PassWordEditText extends LinearLayout{
         {
             img.setImageDrawable(null);
         }
+        mPasswordBuilder.delete(0,mPasswordBuilder.length());
     }
 
     /**
@@ -116,5 +122,13 @@ public class PassWordEditText extends LinearLayout{
             return true;
         }
         return false;
+    }
+
+    /**
+     * 获取输入密码
+     * @return 密码
+     */
+    public String getPassWord(){
+        return mPasswordBuilder.toString();
     }
 }
