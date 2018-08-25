@@ -2,13 +2,10 @@ package com.daobao.asus.customview.PassWordEditText;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
-
 import com.daobao.asus.customview.R;
 
 /**
@@ -62,8 +59,13 @@ public class PassWordEditTextActivity extends AppCompatActivity{
                         mPassWordEditText.addPassWord(9);
                         break;
                     case FINISH:
-                        Toast.makeText(PassWordEditTextActivity.this
-                                ,mPassWordEditText.getPassWord(),Toast.LENGTH_LONG).show();
+                        if(mPassWordEditText.isInputComplet()){
+                            Toast.makeText(PassWordEditTextActivity.this
+                                    ,mPassWordEditText.getPassWord(),Toast.LENGTH_LONG).show();
+                        }else {
+                            Toast.makeText(PassWordEditTextActivity.this
+                                    ,"请输入完整密码",Toast.LENGTH_LONG).show();
+                        }
                         break;
                     case ZERO:
                         mPassWordEditText.addPassWord(0);
