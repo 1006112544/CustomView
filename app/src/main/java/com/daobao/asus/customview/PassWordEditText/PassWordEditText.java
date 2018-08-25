@@ -22,7 +22,8 @@ public class PassWordEditText extends LinearLayout{
     private ImageView PassWordIv6;
     private List<ImageView> PassWordIvList;
     private Integer currentIndex = 0;
-    private int padding=10;
+    private int padding = 10;//px
+    private int mItemSize = 100;//px
     private StringBuilder mPasswordBuilder;
 
     public PassWordEditText(Context context) {
@@ -56,7 +57,7 @@ public class PassWordEditText extends LinearLayout{
         PassWordIv4 = new ImageView(getContext());
         PassWordIv5 = new ImageView(getContext());
         PassWordIv6 = new ImageView(getContext());
-        LayoutParams layoutParams = new LayoutParams(100,100);
+        LayoutParams layoutParams = new LayoutParams(mItemSize,mItemSize);
         layoutParams.gravity = Gravity.CENTER;
         setItemPadding(padding);
         PassWordIv1.setLayoutParams(layoutParams);

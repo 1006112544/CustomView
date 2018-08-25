@@ -61,10 +61,10 @@ public class PassWordEditTextActivity extends AppCompatActivity{
                     case FINISH:
                         if(mPassWordEditText.isInputComplet()){
                             Toast.makeText(PassWordEditTextActivity.this
-                                    ,mPassWordEditText.getPassWord(),Toast.LENGTH_LONG).show();
+                                    ,mPassWordEditText.getPassWord(),Toast.LENGTH_SHORT).show();
                         }else {
                             Toast.makeText(PassWordEditTextActivity.this
-                                    ,"请输入完整密码",Toast.LENGTH_LONG).show();
+                                    ,"请输入完整密码",Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case ZERO:
