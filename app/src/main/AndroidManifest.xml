@@ -26,6 +26,7 @@
         <activity android:name=".RecyclerView.RecyclerViewActivity"/>
         <activity android:name=".FlowLayout.FlowActivity"/>
         <activity android:name=".PassWordEditText.PassWordEditTextActivity"/>
+        <activity android:name=".DropDownAnimation.DropDownAnimationActivity"/>
     </application>
 
 </manifest>

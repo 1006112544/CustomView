@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
+import com.daobao.asus.customview.DropDownAnimation.DropDownAnimationActivity;
 import com.daobao.asus.customview.FlowLayout.FlowActivity;
 import com.daobao.asus.customview.GalleryView.GalleryActivity;
 import com.daobao.asus.customview.GuassianBlur.GaussianBlurActivity;
@@ -61,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.PassWordEditText:
                 startActivity(new Intent(MainActivity.this, PassWordEditTextActivity.class));
+                break;
+            case R.id.DropDown_animation:
+                startActivity(new Intent(MainActivity.this,DropDownAnimationActivity.class));
+                break;
         }
     }
 

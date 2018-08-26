@@ -82,10 +82,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/PassWordEditText"
+        android:id="@+id/PassWordEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="doClick"
+        android:text="仿支付宝密码框"/>
+        <Button
+            android:id="@+id/DropDown_animation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="doClick"
-            android:text="仿支付宝密码框"/>
+            android:text="下拉展开动画"/>
     </LinearLayout>
 </LinearLayout>
