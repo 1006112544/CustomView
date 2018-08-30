@@ -1,6 +1,8 @@
 package com.daobao.asus.customview.PassWordEditText;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -22,9 +24,10 @@ public class PassWordEditText extends LinearLayout{
     private ImageView PassWordIv6;
     private List<ImageView> PassWordIvList;
     private Integer currentIndex = 0;
-    private int padding = 10;//px
-    private int mItemSize = 100;//px
+    private float padding = 10;//px
+    private float mItemSize = 100;//px
     private StringBuilder mPasswordBuilder;
+    private Drawable mItemDrawable;
 
     public PassWordEditText(Context context) {
         this(context,null);
@@ -37,6 +40,11 @@ public class PassWordEditText extends LinearLayout{
     public PassWordEditText(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mPasswordBuilder = new StringBuilder();
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.PassWordEditText);
+        padding = array.getDimension(R.styleable.PassWordEditText_dotPadding,padding);
+        mItemSize = array.getDimension(R.styleable.PassWordEditText_passwordItemSize,mItemSize);
+        mItemDrawable = array.getDrawable(R.styleable.PassWordEditText_dotImg);
+        array.recycle();
         setDividerDrawable(getResources().getDrawable(R.drawable.divider_password_edittext));
         setShowDividers(SHOW_DIVIDER_MIDDLE);
         setBackgroundResource(R.drawable.bg_password_edittext);
@@ -57,9 +65,9 @@ public class PassWordEditText extends LinearLayout{
         PassWordIv4 = new ImageView(getContext());
         PassWordIv5 = new ImageView(getContext());
         PassWordIv6 = new ImageView(getContext());
-        LayoutParams layoutParams = new LayoutParams(mItemSize,mItemSize);
+        LayoutParams layoutParams = new LayoutParams((int) mItemSize,(int) mItemSize);
         layoutParams.gravity = Gravity.CENTER;
-        setItemPadding(padding);
+        setItemPadding((int) padding);
         PassWordIv1.setLayoutParams(layoutParams);
         PassWordIv2.setLayoutParams(layoutParams);
         PassWordIv3.setLayoutParams(layoutParams);
@@ -88,7 +96,12 @@ public class PassWordEditText extends LinearLayout{
     public void addPassWord(int input){
         if(currentIndex<6){
             mPasswordBuilder.append(input);
-            PassWordIvList.get(currentIndex++).setImageResource(R.mipmap.ic_dot);
+            if(mItemDrawable!=null){
+                PassWordIvList.get(currentIndex++).setImageDrawable(mItemDrawable);
+            }else {
+                PassWordIvList.get(currentIndex++).setImageResource(R.mipmap.ic_dot);
+            }
+
         }
     }
 
@@ -131,5 +144,10 @@ public class PassWordEditText extends LinearLayout{
      */
     public String getPassWord(){
         return mPasswordBuilder.toString();
+    }
+
+    public static int sp2px(Context context,float spValue){
+        final float fontScale = context.getResources(). getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
     }
 }

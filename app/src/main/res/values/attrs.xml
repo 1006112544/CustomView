@@ -12,4 +12,10 @@
         <attr name="roundWidth" format="dimension" />
         <attr name="roundHeight" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="PassWordEditText">
+        <attr name="dotPadding" format="dimension"/>
+        <attr name="passwordItemSize" format="dimension"/>
+        <attr name="dotImg" format="reference" />
+    </declare-styleable>
 </resources>
