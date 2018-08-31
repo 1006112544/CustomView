@@ -27,6 +27,8 @@
         <activity android:name=".FlowLayout.FlowActivity"/>
         <activity android:name=".PassWordEditText.PassWordEditTextActivity"/>
         <activity android:name=".DropDownAnimation.DropDownAnimationActivity"/>
+        <activity android:name=".ShareView.ShareViewFirstActivity"/>
+        <activity android:name=".ShareView.ShareViewSecondActivity"/>
     </application>
 
 </manifest>

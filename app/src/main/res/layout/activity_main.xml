@@ -93,5 +93,11 @@
             android:layout_height="wrap_content"
             android:onClick="doClick"
             android:text="下拉展开动画"/>
+        <Button
+            android:id="@+id/ShareView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="doClick"
+            android:text="Activity共享View"/>
     </LinearLayout>
 </LinearLayout>

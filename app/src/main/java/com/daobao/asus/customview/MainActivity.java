@@ -18,6 +18,7 @@ import com.daobao.asus.customview.MsgDrafitingView.MsgDrafitingViewActivity;
 import com.daobao.asus.customview.PassWordEditText.PassWordEditTextActivity;
 import com.daobao.asus.customview.RecyclerView.RecyclerViewActivity;
 import com.daobao.asus.customview.RoundImageView.RoundAngleImageActivity;
+import com.daobao.asus.customview.ShareView.ShareViewFirstActivity;
 import com.daobao.asus.customview.StepView.qqStepActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -65,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.DropDown_animation:
                 startActivity(new Intent(MainActivity.this,DropDownAnimationActivity.class));
+                break;
+            case R.id.ShareView:
+                startActivity(new Intent(MainActivity.this, ShareViewFirstActivity.class));
                 break;
         }
     }
