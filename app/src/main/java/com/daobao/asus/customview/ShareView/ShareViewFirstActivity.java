@@ -30,6 +30,7 @@ public class ShareViewFirstActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ShareViewSecondActivity.class);
         Bundle bundle = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            //共享view 通过sharedElementName标识
             bundle = ActivityOptions.makeSceneTransitionAnimation(this,mImageView,"share").toBundle();
             startActivity(intent,bundle);
             //如果有多个共享view可以通过Pair.create()来创建多个共享元素
