@@ -29,6 +29,8 @@
         <activity android:name=".DropDownAnimation.DropDownAnimationActivity"/>
         <activity android:name=".ShareView.ShareViewFirstActivity"/>
         <activity android:name=".ShareView.ShareViewSecondActivity"/>
+        <activity android:name=".Animation3D.Animation3DActivity"/>
+
     </application>
 
 </manifest>

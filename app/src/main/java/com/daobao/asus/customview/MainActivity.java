@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
+import com.daobao.asus.customview.Animation3D.Animation3DActivity;
 import com.daobao.asus.customview.DropDownAnimation.DropDownAnimationActivity;
 import com.daobao.asus.customview.FlowLayout.FlowActivity;
 import com.daobao.asus.customview.GalleryView.GalleryActivity;
@@ -69,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.ShareView:
                 startActivity(new Intent(MainActivity.this, ShareViewFirstActivity.class));
+                break;
+            case R.id.Rotate3dAnimation:
+                startActivity(new Intent(MainActivity.this, Animation3DActivity.class));
                 break;
         }
     }
