@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.Rotate3dAnimation:
                 startActivity(new Intent(MainActivity.this, Animation3DActivity.class));
+                overridePendingTransition(R.anim.enter_anim,R.anim.exit_anim);
                 break;
         }
     }

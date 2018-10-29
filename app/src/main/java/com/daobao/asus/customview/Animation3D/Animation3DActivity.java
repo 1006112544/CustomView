@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
-
 import com.daobao.asus.customview.CircleImgView.CircleImgView;
 import com.daobao.asus.customview.R;
 
@@ -36,5 +35,11 @@ public class Animation3DActivity extends AppCompatActivity{
                 mCircleIv.startAnimation(r3a);
             }
         });
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.enter_anim,R.anim.exit_anim);
     }
 }
